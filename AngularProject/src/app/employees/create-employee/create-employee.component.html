@@ -1,0 +1,52 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+       <h4 class="panel-title">Create Employee</h4>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+             <label class="col-sm-2 control-label " for="firstname">Full Name</label>
+             <div class="col-sm-8">
+                <input type="text" formControlName="firstname" id="firstname" class="form-control">
+             </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="email">Email</label>
+            <div class="col-sm-8">
+               <input type="email" formControlName="email" id="email" class="form-control">
+            </div>
+       </div>
+       <div formGroupName="skills">
+             <div class="form-group">
+                   <label class="col-sm-2 control-label" for="skillname">Skill</label>
+                   <div class="col-sm-4">
+                      <input type="text" id="skillname" class="form-control" formControlName="skillname">
+                   </div>
+                   <div class="col-sm-4">
+                      <input type="text" id="experience" class="form-control" formControlName="experience">
+                   </div>
+             </div>
+            <div class="form-group">
+                   <label class="col-sm-2 control-label">Proficiency</label>
+                    <div class="col-sm-8">
+                      <label class="radio-inline">
+                          <input id="proficiency" type="radio" formControlName="proficiency" value="begineer">
+                          Begineer
+                      </label>
+                        
+                      <label class="radio-inline">
+                          <input id="proficiency"  type="radio" formControlName="proficiency" value="intermediate">
+                          Intermediate
+                      </label>
+                    </div>
+            </div> 
+       </div>
+       <div class="panel-footer">
+         <div class="btn-toolbar"> 
+           <button class="btn btn-primary" type="submit">Save</button>
+           <button class="btn btn-primary" type="button" (click)="onLoadData()">Data</button>
+          </div>
+       </div> 
+    </div>
+  </div>
+</form>

@@ -1,0 +1,101 @@
+
+<div class="container mt-5">
+   <div class="registration_list">
+     <table class="table table-striped">
+       <thead>
+         <tr>
+           <th>Sr.no</th>
+           <th>First Name</th>
+           <th>Last Name</th>
+           <th>Email</th>
+           <th>Password</th>
+           <th>Action</th>
+         </tr>
+       </thead>
+        <tbody>
+          <tr *ngFor="let registration of registrations;let i = index">
+            <td scope="row">{{ i + 1}}</td>
+            <td>{{registration.firstName}}</td>
+            <td>{{registration.lastName}}</td>
+            <td>{{registration.email}}</td>
+            <td>{{registration.password}}</td>
+            <td>
+                 <button class="btn btn-success"(click)="onEdit(i)">Edit</button>&nbsp;
+                 <button class="btn btn-primary"(click)="onDelete(i)">Delete</button>              
+            </td>
+          </tr>
+        </tbody>
+     </table>
+      <div class="text-right mb-2">
+        <button type="submit" class="btn btn-info" (click)="onNew()">New</button>
+      </div>
+   </div>
+     <div class="registration_entry" *ngIf="showNew">
+       <form (ngSubmit)="onSave()">
+         <div class="row form-group">
+           <label for="firstName" class="col-sm-2">First Name</label> 
+           <div class="col-10">
+             <input class="form-control" type="text" [(ngModel)]="regModel.firstName" name="firstName">
+           </div> 
+         </div>
+         <div class="row form-group">
+            <label for="firstName" class="col-sm-2">Last Name</label> 
+            <div class="col-10">
+              <input class="form-control" type="text" [(ngModel)]="regModel.lastName"name="lastName">
+            </div> 
+          </div>
+          <div class="row form-group">
+              <label for="email" class="col-sm-2">Email</label> 
+              <div class="col-10">
+                <input class="form-control" type="text" [(ngModel)]="regModel.email" name="email">
+              </div> 
+            </div>
+            <div class="row form-group">
+                <label for="password" class="col-sm-2">Password</label> 
+                <div class="col-10">
+                  <input class="form-control" type="text" [(ngModel)]="regModel.password" name="password">
+                </div> 
+            </div>
+            <button type="submit" class="btn btn-success">{{submitType}}</button>&nbsp;
+            <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+       </form>
+     </div>
+</div>
+
+
+<!-- <div class="container">
+   
+    
+    <br>
+    <div class="regentry" *ngIf="showNew">
+      <form (ngSubmit)="onSave()">
+        <div class="form-group row">
+          <label for="firstname-input" class="col-2 col-form-label">First Name</label>
+          <div class="col-10">
+            <input class="form-control" type="text" [(ngModel)]="regModel.firstName" name="firstName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lastname-input" class="col-2 col-form-label">Last Name</label>
+          <div class="col-10">
+            <input class="form-control" type="text" [(ngModel)]="regModel.lastName" name="lastName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-email-input" class="col-2 col-form-label">Email</label>
+          <div class="col-10">
+            <input class="form-control" type="email" [(ngModel)]="regModel.email" name="email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-password-input" class="col-2 col-form-label">Password</label>
+          <div class="col-10">
+            <input class="form-control" type="password" [(ngModel)]="regModel.password" name="password">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">{{submitType}}</button>
+        <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+      </form>
+    </div>
+  </div> -->
+  

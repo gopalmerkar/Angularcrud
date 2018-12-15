@@ -1,0 +1,32 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+<div class="container">
+  <h2 style="text-align: center">Quiz Application</h2>
+  <form *ngFor="let row of quizes;let i = index" class="form">
+    <div  class="form-question row"> 
+      <div>{{row[i].Question}}</div>
+       <div class="col-sm-8">
+          <label for="question">Question:</label>
+          <input type="question" class="form-control" id="question" name="question">
+       </div>
+    </div>  
+    <div class="question_option">
+        <div class="row"> 
+          <div class="col-sm-4">
+              <input id="ans_option" type="radio" name="genderControl" value="genderControl" />
+              <label class="radio-label"></label> 
+          </div>
+        </div>
+    </div>
+    <br>
+      <button class="btn btn-lg btn-danger" (click)="previousQuestion()">Previous Question</button>
+      <button class="btn btn-lg btn-info" (click)="nextQuestion(row)">Next Question</button>
+  </form>
+</div>
+
+		
+      
+  
+
+	
